@@ -2,6 +2,8 @@ package cl.awakelabs.ejercicio8m6
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import cl.awakelabs.ejercicio4mod6.R
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
