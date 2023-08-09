@@ -12,5 +12,5 @@ interface RaceDAO {
     suspend fun insertRace(raceEntity: RaceEntity)
 
     @Query("select * from tbl_razas order by race desc")
-    fun getRace(): LiveData<RaceEntity>
+    fun getRace(): LiveData<List<RaceEntity>>
 }

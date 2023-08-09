@@ -12,10 +12,11 @@ import kotlinx.coroutines.launch
 class RaceViewModel(application: Application): AndroidViewModel(application) {
     private val repository: Repository
 
+    fun raceLiveData() = repository.obtainRaceEntity()
     init {
         val api = DogRetroFit.getRetroFitRace()
         val dao = RaceDataBase.getDatabase(application).getRaceDao()
         repository = Repository(api, dao)
    }
-    fun getData() = viewModelScope.launch { repository.getRace() }
+    fun getAllRace() = viewModelScope.launch { repository.getRace() }
 }
