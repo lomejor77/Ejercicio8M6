@@ -9,5 +9,14 @@
         android:id="@+id/raceFragment"
         android:name="cl.awakelabs.ejercicio8m6.presentation.RaceFragment"
         android:label="fragment_race"
-        tools:layout="@layout/fragment_race" />
+        tools:layout="@layout/fragment_race" >
+        <action
+            android:id="@+id/action_raceFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="cl.awakelabs.ejercicio8m6.presentation.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
 </navigation>
