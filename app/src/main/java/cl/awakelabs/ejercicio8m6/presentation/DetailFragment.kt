@@ -50,6 +50,7 @@ class DetailFragment : Fragment() {
         binding.recyclerDetail.adapter = adapter
         raceViewModel.detailLiveData(param1.toString()).observe(viewLifecycleOwner){
             adapter.setDataDetail(it)
+
         }
     }
 
