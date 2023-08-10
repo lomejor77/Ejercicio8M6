@@ -39,13 +39,19 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDetailBinding.inflate(layoutInflater, container, false)
-        //initAdapter()
+        initAdapter()
         raceViewModel.getDetail(param1.toString())
         // Inflate the layout for this fragment
         return binding.root
     }
 
-
+    private fun initAdapter() {
+        val adapter = AdapterDetail()
+        binding.recyclerDetail.adapter = adapter
+        raceViewModel.detailLiveData(param1.toString()).observe(viewLifecycleOwner){
+            adapter.setDataDetail(it)
+        }
+    }
 
 
 }
