@@ -13,10 +13,13 @@ class RaceViewModel(application: Application): AndroidViewModel(application) {
     private val repository: Repository
 
     fun raceLiveData() = repository.obtainRaceEntity()
+    fun detailLiveData(id: String) = repository.obtainRaceDetailEntity(id)
     init {
         val api = DogRetroFit.getRetroFitRace()
         val dao = RaceDataBase.getDatabase(application).getRaceDao()
         repository = Repository(api, dao)
    }
     fun getAllRace() = viewModelScope.launch { repository.getRace() }
+
+    fun getDetail(id: String)  = viewModelScope.launch { repository.getDetailRace(id) }
 }

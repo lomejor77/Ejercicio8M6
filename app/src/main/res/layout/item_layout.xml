@@ -8,8 +8,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardList"
-        android:layout_width="370dp"
-        android:layout_height="100dp"
+        android:layout_width="400dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="3dp"
@@ -21,6 +21,7 @@
         tools:ignore="NotSibling">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constrCard"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

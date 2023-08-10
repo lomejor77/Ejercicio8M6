@@ -13,4 +13,10 @@ interface RaceDAO {
 
     @Query("select * from tbl_razas order by race desc")
     fun getRace(): LiveData<List<RaceEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertRaceDetail(raceDetailEntity: RaceDetailEntity)
+
+    @Query("select * from tbl_racedetail where raceDetail like :id")
+    fun getRaceDetail(id: String): LiveData<List<RaceDetailEntity>>
 }

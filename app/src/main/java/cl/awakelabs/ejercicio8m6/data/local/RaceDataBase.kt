@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [RaceEntity::class], version = 1)
+@Database(entities = [RaceEntity::class, RaceDetailEntity::class], version = 1)
 abstract class RaceDataBase: RoomDatabase() {
     abstract fun getRaceDao(): RaceDAO
     companion object {

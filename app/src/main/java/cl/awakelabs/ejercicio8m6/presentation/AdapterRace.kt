@@ -1,5 +1,6 @@
 package cl.awakelabs.ejercicio8m6.presentation
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
@@ -41,7 +42,9 @@ class AdapterRace: RecyclerView.Adapter<AdapterRace.ItemRaceViewHolder>() {
         fun bind(race: RaceEntity ){
            raceView.txRace.text = race.race
            raceView.cardList.setOnClickListener {
-                Navigation.findNavController(raceView.root).navigate(R.id.action_raceFragment_to_detailFragment)
+               val bundle = Bundle()
+               bundle.putString("id", race.race)
+                Navigation.findNavController(raceView.root).navigate(R.id.action_raceFragment_to_detailFragment, bundle)
             }
         }
 
