@@ -6,6 +6,7 @@
     import cl.awakelabs.ejercicio8m6.data.local.RaceDetailEntity
     import cl.awakelabs.ejercicio8m6.data.local.RaceEntity
     import cl.awakelabs.ejercicio8m6.data.remote.RaceAPI
+    import cl.awakelabs.ejercicio8m6.data.remote.toEntity
 
     class Repository(private val raceAPI: RaceAPI, private val raceDAO: RaceDAO) {
 
@@ -30,7 +31,7 @@
             val response= raceAPI.getDetailDog(id)
             if (response.isSuccessful) {
                 response.body()!!.message.forEach {
-                    val raceDetail = RaceDetailEntity(id,it)
+                    val raceDetail = it.toEntity(id)//transformando
                     raceDAO.insertRaceDetail(raceDetail)
                 }
 
