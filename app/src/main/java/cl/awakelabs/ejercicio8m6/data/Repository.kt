@@ -30,8 +30,8 @@
         suspend fun getDetailRace(id: String){
             val response= raceAPI.getDetailDog(id)
             if (response.isSuccessful) {
-                response.body()!!.message.forEach {
-                    val raceDetail = it.toEntity(id)//transformando
+                response.body()!!.message.forEach {url->
+                    val raceDetail = url.toEntity(id)//test de transformacion
                     raceDAO.insertRaceDetail(raceDetail)
                 }
 
@@ -41,3 +41,20 @@
 
         }
     }
+/**
+ *
+ *  suspend fun getDetailRace(id: String){
+ *             val response= raceAPI.getDetailDog(id)
+ *             if (response.isSuccessful) {
+ *                 response.body()!!.message.forEach {
+ *                     val raceDetail = RaceDetailEntity(id,it)
+ *                     raceDAO.insertRaceDetail(raceDetail)
+ *                 }
+ *
+ *             }else{
+ *                     Log.e("repository", response.errorBody().toString())
+ *             }
+ *
+ *         }
+ *
+ * */
